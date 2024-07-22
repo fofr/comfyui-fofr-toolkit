@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-fofr-toolkit"
+description = "A simple set of tooling nodes"
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/fofr/comfyui-fofr-toolkit"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = "fofr"
+DisplayName = "ComfyUI-fofr-toolkit"
+Icon = ""
