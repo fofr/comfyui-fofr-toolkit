@@ -32,6 +32,52 @@ class Incrementer:
         return (current_index % (max + 1),)
 
 
+class WidthAndHeightFromAspectRatio:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "aspect_ratio": (
+                    [
+                        "1:1",
+                        "1:2",
+                        "2:1",
+                        "2:3",
+                        "3:2",
+                        "3:4",
+                        "4:3",
+                        "4:5",
+                        "5:4",
+                        "9:16",
+                        "16:9",
+                        "9:21",
+                        "21:9",
+                    ],
+                    {"default": "1:1"},
+                ),
+                "target_size": ("INT", {"default": 1024, "min": 64, "max": 8192}),
+            },
+            "optional": {
+                "multiple_of": ("INT", {"default": 8, "min": 1, "max": 1024}),
+            },
+        }
+
+    RETURN_TYPES = ("INT", "INT")
+    RETURN_NAMES = ("width", "height")
+    FUNCTION = "width_and_height_from_aspect_ratio"
+    CATEGORY = "fofr-toolkit"
+
+    def width_and_height_from_aspect_ratio(
+        self, aspect_ratio, target_size, multiple_of=8
+    ):
+        w, h = map(int, aspect_ratio.split(":"))
+        scale = (target_size**2 / (w * h)) ** 0.5
+        width = round(w * scale / multiple_of) * multiple_of
+        height = round(h * scale / multiple_of) * multiple_of
+        return (width, height)
+
+
 NODE_CLASS_MAPPINGS = {
     "Incrementer 🪴": Incrementer,
+    "Width and height from aspect ratio 🪴": WidthAndHeightFromAspectRatio,
 }
