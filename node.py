@@ -1,4 +1,4 @@
-class Incrementer:
+class ToolkitIncrementer:
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -32,7 +32,7 @@ class Incrementer:
         return (current_index % (max + 1),)
 
 
-class WidthAndHeightFromAspectRatio:
+class ToolkitWidthAndHeightFromAspectRatio:
     @classmethod
     def INPUT_TYPES(cls):
         return {
@@ -78,6 +78,6 @@ class WidthAndHeightFromAspectRatio:
 
 
 NODE_CLASS_MAPPINGS = {
-    "Incrementer 🪴": Incrementer,
-    "Width and height from aspect ratio 🪴": WidthAndHeightFromAspectRatio,
+    "Incrementer 🪴": ToolkitIncrementer,
+    "Width and height from aspect ratio 🪴": ToolkitWidthAndHeightFromAspectRatio,
 }
