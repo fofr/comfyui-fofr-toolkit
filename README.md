@@ -21,9 +21,11 @@ Inputs:
 - `target_size` (required): The target size
 - `multiple_of` (optional): Ensure the output dimensions are multiples of this value (default 8, range 1-1024).
 
-### Width and height for scaling image to ideal size
+### Width and height for scaling image to ideal resolution
 
-Calculates width and height for scaling an input image to a target size while maintaining its aspect ratio.
+Calculates width and height for scaling an input image to a target resolution (for example 1024x1024 is a common ideal size) while maintaining its aspect ratio.
+
+For example, an image that is 3:2 with a target of 1024x1024 pixels will be scaled to 1256x840 (rather than the less ideal 1024x682).
 
 Inputs:
 - `image` (required): The input image to be scaled.

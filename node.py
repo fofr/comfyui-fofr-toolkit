@@ -109,5 +109,5 @@ class ToolkitWidthAndHeightForImageScaling:
 NODE_CLASS_MAPPINGS = {
     "Incrementer 🪴": ToolkitIncrementer,
     "Width and height from aspect ratio 🪴": ToolkitWidthAndHeightFromAspectRatio,
-    "Width and height for scaling image to ideal size 🪴": ToolkitWidthAndHeightForImageScaling,
+    "Width and height for scaling image to ideal resolution 🪴": ToolkitWidthAndHeightForImageScaling,
 }
