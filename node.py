@@ -77,7 +77,37 @@ class ToolkitWidthAndHeightFromAspectRatio:
         return (width, height)
 
 
+class ToolkitWidthAndHeightForImageScaling:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "image": ("IMAGE",),
+                "target_size": (
+                    "INT",
+                    {"default": 1024, "min": 64, "max": 8192},
+                ),
+            },
+            "optional": {
+                "multiple_of": ("INT", {"default": 8, "min": 1, "max": 1024}),
+            },
+        }
+
+    RETURN_TYPES = ("INT", "INT")
+    RETURN_NAMES = ("width", "height")
+    FUNCTION = "scale_image_to_target"
+    CATEGORY = "fofr-toolkit"
+
+    def scale_image_to_target(self, image, target_size, multiple_of=8):
+        h, w = image.shape[1:3]
+        scale = (target_size**2 / (w * h)) ** 0.5
+        width = round(w * scale / multiple_of) * multiple_of
+        height = round(h * scale / multiple_of) * multiple_of
+        return (width, height)
+
+
 NODE_CLASS_MAPPINGS = {
     "Incrementer 🪴": ToolkitIncrementer,
     "Width and height from aspect ratio 🪴": ToolkitWidthAndHeightFromAspectRatio,
+    "Width and height for scaling image to ideal size 🪴": ToolkitWidthAndHeightForImageScaling,
 }

@@ -20,3 +20,12 @@ Inputs:
 - `aspect_ratio` (required): Choose from predefined aspect ratios (eg "1:1", "16:9", "21:9").
 - `target_size` (required): The target size
 - `multiple_of` (optional): Ensure the output dimensions are multiples of this value (default 8, range 1-1024).
+
+### Width and height for scaling image to ideal size
+
+Calculates width and height for scaling an input image to a target size while maintaining its aspect ratio.
+
+Inputs:
+- `image` (required): The input image to be scaled.
+- `target_size` (required): The target size for scaling. Default is 1024, range 64-8192.
+- `multiple_of` (optional): Ensure the output dimensions are multiples of this value (default 8, range 1-1024).
