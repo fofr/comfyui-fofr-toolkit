@@ -2,7 +2,7 @@
 name = "comfyui-fofr-toolkit"
 description = "A simple set of tooling nodes"
 version = "1.0.2"
-license = "LICENSE"
+license = { file = "LICENSE" }
 
 [project.urls]
 Repository = "https://github.com/fofr/comfyui-fofr-toolkit"
